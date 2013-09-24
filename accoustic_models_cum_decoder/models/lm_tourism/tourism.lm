@@ -1,0 +1,311 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+## Version 3, Copyright (c) 2006, Carnegie Mellon University 
+## Contributors includes Wen Xu, Ananlada Chotimongkol, 
+## David Huggins-Daines, Arthur Chan and Alan Black 
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 3-gram language model, based on a vocabulary of 61 words,
+  which begins "aaqdhrapradeisx", "awutuqdi", "bas"...
+This is an OPEN-vocabulary model (type 1)
+  (OOVs were mapped to UNK, which is treated as any other vocabulary word)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 44 
+2-gram frequency of frequency : 86 4 1 0 0 0 0 
+3-gram frequency of frequency : 97 0 0 0 0 0 0 
+1-gram discounting ratios : 0.96 
+2-gram discounting ratios : 0.06 0.35 
+3-gram discounting ratios : 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+ngram 2=nr            # number of 2-grams
+ngram 3=nr            # number of 3-grams
+
+\1-grams:
+p_1     wd_1 bo_wt_1
+\2-grams:
+p_2     wd_1 wd_2 bo_wt_2
+\3-grams:
+p_3     wd_1 wd_2 wd_3 
+
+end of data mark: \end\
+
+\data\
+ngram 1=62
+ngram 2=91
+ngram 3=97
+
+\1-grams:
+-2.0061 <UNK>	0.0000
+-2.0061 aaqdhrapradeisx	-0.1844
+-2.0061 awutuqdi	-0.1797
+-1.6857 bas	-0.1800
+-2.0061 bayatxa	-0.1844
+-2.0061 biryaani	-0.1751
+-2.0061 ceppu	-0.1797
+-2.0061 cilukuuru	-0.1844
+-2.0061 cuudxadagina	-0.1844
+-2.0061 daggara	-0.1464
+-2.0061 dara	-0.1704
+-2.0061 dorukutuqdi	0.0000
+-2.0061 duuraq	-0.1657
+-1.6857 dwaaraka	-0.5884
+-1.6857 ei	-0.1800
+-2.0061 eidi	-0.1657
+-1.6857 eiqtxi	-0.1612
+-1.5097 ekkadxa	-0.5589
+-2.0061 eksapres	-0.1797
+-1.5097 elaa	-0.1614
+-1.3847 eqta	-0.1712
+-2.0061 eyir	-0.1844
+-1.2878 haidaraabaad	-0.4117
+-1.5097 hotxel	-0.1106
+-2.0061 ii	-0.1844
+-1.6857 ikkadxa	-0.1564
+-2.0061 ippudxu	-0.1657
+-2.0061 iqdxigoo	-0.1844
+-1.2086 ki	-0.2804
+-2.0061 ladxdxu	-0.1844
+-2.0061 lageiji	-0.1844
+-2.0061 leiks	-0.1751
+-1.0325 loo	-0.2117
+-1.6857 maqci	-0.1706
+-2.0061 nagaraq	-0.1464
+-2.0061 nuqci	-0.1797
+-2.0061 peirlu	-0.1844
+-2.0061 phlaitx	-0.1610
+-2.0061 plaatxaphaaraq	-0.1464
+-2.0061 poortx	-0.1751
+-2.0061 poowaali	-0.1797
+-2.0061 poowaccu	-0.1657
+-2.0061 poowadxaaniki	-0.1704
+-2.0061 pradeishaalu	-0.1797
+-1.6857 raajadhaani	-0.1800
+-2.0061 raastxra	-0.1797
+-2.0061 railwei	-0.1844
+-2.0061 restxaareqtx	-0.1751
+-2.0061 ruums	-0.1797
+-2.0061 stxaap	-0.1704
+-2.0061 stxeisxan	-0.1610
+-2.0061 tiisuku	-0.1844
+-2.0061 tirumala	-0.1464
+-2.0061 txaimiqgs	-0.1797
+-2.0061 txeqpul	-0.1610
+-2.0061 waataawaranaq	-0.1751
+-2.0061 wellaali	-0.1797
+-2.0061 welxlxei	-0.1797
+-2.0061 widhamaina	-0.1844
+-1.6857 wunnaayi	-0.1800
+-1.3847 wuqdi	-0.1712
+-2.0061 wuuru	-0.1464
+
+\2-grams:
+-0.4530 aaqdhrapradeisx raastxra -0.1123
+-0.4530 awutuqdi dwaaraka 0.3010
+-0.7540 bas stxaap -0.1123
+-0.7540 bas txaimiqgs -0.1123
+-0.4530 bayatxa waataawaranaq -0.1123
+-0.4530 biryaani ekkadxa -0.2998
+-0.4530 ceppu dwaaraka 0.3010
+-0.4530 cilukuuru txeqpul -0.1123
+-0.4530 cuudxadagina pradeishaalu -0.1123
+-0.4530 daggara loo -0.2826
+-0.4530 dara eqta -0.2610
+-0.4530 duuraq haidaraabaad -0.2610
+-0.1249 dwaaraka hotxel -0.3608
+-0.7540 ei plaatxaphaaraq -0.1123
+-0.7540 ei widhamaina -0.1123
+-0.4530 eidi haidaraabaad 0.0000
+-0.7540 eiqtxi cilukuuru -0.1123
+-0.7540 eiqtxi haidaraabaad 0.0000
+-0.8509 ekkadxa wunnaayi -0.2168
+-0.2218 ekkadxa wuqdi -0.3929
+-0.4530 eksapres ei -0.2168
+-0.9301 elaa poowaali -0.1123
+-0.9301 elaa wellaali -0.1123
+-0.9301 elaa wuqdi -0.2610
+-1.0550 eqta awutuqdi -0.1123
+-1.0550 eqta duuraq -0.1123
+-1.0550 eqta lageiji -0.1123
+-1.0550 eqta railwei -0.1123
+-0.4530 eyir poortx -0.1123
+-1.0550 haidaraabaad ki -0.2723
+-0.3010 haidaraabaad loo -0.4716
+-1.0550 haidaraabaad nagaraq -0.1123
+-0.9301 hotxel ki -0.2723
+-0.9301 hotxel loo -0.2826
+-0.9301 hotxel peirlu -0.1123
+-0.4530 ii wuuru -0.1123
+-0.7540 ikkadxa ki -0.2723
+-0.7540 ikkadxa nuqci -0.1123
+-0.4530 ippudxu haidaraabaad -0.2610
+-0.4530 iqdxigoo phlaitx -0.1123
+-1.1933 ki daggara -0.1123
+-0.5643 ki elaa -0.3608
+-1.1933 ki eqta -0.2610
+-1.1933 ki poowadxaaniki -0.1123
+-1.1933 ki welxlxei -0.1123
+-0.4530 ladxdxu dara -0.1123
+-0.4530 lageiji tiisuku -0.1123
+-0.4530 leiks ekkadxa -0.2350
+-1.3824 loo cuudxadagina -0.1123
+-1.3824 loo ei -0.2168
+-1.3824 loo eyir -0.1123
+-1.3824 loo ladxdxu -0.1123
+-1.3824 loo leiks -0.1123
+-0.7533 loo maqci -0.2884
+-1.3824 loo restxaareqtx -0.1123
+-1.3824 loo wuqdi -0.2610
+-0.7540 maqci biryaani -0.1123
+-0.7540 maqci hotxel -0.2468
+-0.4530 nagaraq loo -0.2826
+-0.4530 nuqci bas -0.2168
+-0.4530 peirlu ceppu -0.1123
+-0.4530 phlaitx ki -0.2723
+-0.4530 plaatxaphaaraq loo -0.2826
+-0.4530 poortx ekkadxa 0.0969
+-0.4530 poowaali raajadhaani -0.2168
+-0.4530 poowaccu haidaraabaad 0.0000
+-0.4530 poowadxaaniki eqta -0.2610
+-0.4530 pradeishaalu eiqtxi -0.2168
+-0.7540 raajadhaani eidi -0.1123
+-0.7540 raajadhaani eksapres -0.1123
+-0.4530 raastxra raajadhaani -0.2168
+-0.4530 railwei stxeisxan -0.1123
+-0.4530 restxaareqtx ekkadxa 0.0969
+-0.4530 ruums wunnaayi -0.2168
+-0.4530 stxaap eqta -0.2610
+-0.4530 stxeisxan ki -0.1627
+-0.4530 tiisuku poowaccu -0.1123
+-0.4530 tirumala loo -0.2826
+-0.4530 txaimiqgs eiqtxi -0.2168
+-0.4530 txeqpul ki -0.1627
+-0.4530 waataawaranaq elaa -0.2468
+-0.4530 wellaali ikkadxa -0.2168
+-0.4530 welxlxei bas -0.2168
+-0.4530 widhamaina ruums -0.1123
+-0.7540 wunnaayi bayatxa -0.1123
+-0.7540 wunnaayi iqdxigoo -0.1123
+-1.0550 wuqdi aaqdhrapradeisx -0.1123
+-1.0550 wuqdi ii -0.1123
+-1.0550 wuqdi ippudxu -0.1123
+-1.0550 wuqdi tirumala -0.1123
+-0.4530 wuuru loo -0.2167
+
+\3-grams:
+-0.3010 aaqdhrapradeisx raastxra raajadhaani 
+-0.3010 awutuqdi dwaaraka hotxel 
+-0.3010 bas stxaap eqta 
+-0.3010 bas txaimiqgs eiqtxi 
+-0.3010 bayatxa waataawaranaq elaa 
+-0.3010 biryaani ekkadxa dorukutuqdi 
+-0.3010 ceppu dwaaraka hotxel 
+-0.3010 cilukuuru txeqpul ki 
+-0.3010 cuudxadagina pradeishaalu eiqtxi 
+-0.3010 daggara loo restxaareqtx 
+-0.3010 dara eqta railwei 
+-0.3010 duuraq haidaraabaad ki 
+-0.4771 dwaaraka hotxel ki 
+-0.4771 dwaaraka hotxel loo 
+-0.3010 ei plaatxaphaaraq loo 
+-0.3010 ei widhamaina ruums 
+-0.3010 eidi haidaraabaad loo 
+-0.3010 eiqtxi cilukuuru txeqpul 
+-0.3010 eiqtxi haidaraabaad loo 
+-0.3010 ekkadxa wunnaayi iqdxigoo 
+-0.4771 ekkadxa wuqdi aaqdhrapradeisx 
+-0.4771 ekkadxa wuqdi tirumala 
+-0.3010 eksapres ei plaatxaphaaraq 
+-0.3010 elaa poowaali raajadhaani 
+-0.3010 elaa wellaali ikkadxa 
+-0.3010 elaa wuqdi ippudxu 
+-0.3010 eqta awutuqdi dwaaraka 
+-0.3010 eqta duuraq haidaraabaad 
+-0.3010 eqta lageiji tiisuku 
+-0.3010 eqta railwei stxeisxan 
+-0.3010 eyir poortx ekkadxa 
+-0.3010 haidaraabaad ki welxlxei 
+-0.6021 haidaraabaad loo eyir 
+-0.6021 haidaraabaad loo leiks 
+-0.6021 haidaraabaad loo maqci 
+-0.3010 haidaraabaad nagaraq loo 
+-0.3010 hotxel ki poowadxaaniki 
+-0.3010 hotxel loo ei 
+-0.3010 hotxel peirlu ceppu 
+-0.3010 ii wuuru loo 
+-0.3010 ikkadxa ki daggara 
+-0.3010 ikkadxa nuqci bas 
+-0.3010 ippudxu haidaraabaad nagaraq 
+-0.3010 iqdxigoo phlaitx ki 
+-0.3010 ki daggara loo 
+-0.4771 ki elaa poowaali 
+-0.4771 ki elaa wellaali 
+-0.3010 ki eqta lageiji 
+-0.3010 ki poowadxaaniki eqta 
+-0.3010 ki welxlxei bas 
+-0.3010 ladxdxu dara eqta 
+-0.3010 lageiji tiisuku poowaccu 
+-0.3010 leiks ekkadxa wunnaayi 
+-0.3010 loo cuudxadagina pradeishaalu 
+-0.3010 loo ei widhamaina 
+-0.3010 loo eyir poortx 
+-0.3010 loo ladxdxu dara 
+-0.3010 loo leiks ekkadxa 
+-0.4771 loo maqci biryaani 
+-0.4771 loo maqci hotxel 
+-0.3010 loo restxaareqtx ekkadxa 
+-0.3010 loo wuqdi ii 
+-0.3010 maqci biryaani ekkadxa 
+-0.3010 maqci hotxel peirlu 
+-0.3010 nagaraq loo cuudxadagina 
+-0.3010 nuqci bas stxaap 
+-0.3010 peirlu ceppu dwaaraka 
+-0.3010 phlaitx ki eqta 
+-0.3010 plaatxaphaaraq loo wuqdi 
+-0.3010 poortx ekkadxa wuqdi 
+-0.3010 poowaali raajadhaani eksapres 
+-0.3010 poowaccu haidaraabaad loo 
+-0.3010 poowadxaaniki eqta awutuqdi 
+-0.3010 pradeishaalu eiqtxi cilukuuru 
+-0.3010 raajadhaani eidi haidaraabaad 
+-0.3010 raajadhaani eksapres ei 
+-0.3010 raastxra raajadhaani eidi 
+-0.3010 railwei stxeisxan ki 
+-0.3010 restxaareqtx ekkadxa wuqdi 
+-0.3010 ruums wunnaayi bayatxa 
+-0.3010 stxaap eqta duuraq 
+-0.3010 stxeisxan ki elaa 
+-0.3010 tiisuku poowaccu haidaraabaad 
+-0.3010 tirumala loo ladxdxu 
+-0.3010 txaimiqgs eiqtxi haidaraabaad 
+-0.3010 txeqpul ki elaa 
+-0.3010 waataawaranaq elaa wuqdi 
+-0.3010 wellaali ikkadxa nuqci 
+-0.3010 welxlxei bas txaimiqgs 
+-0.3010 widhamaina ruums wunnaayi 
+-0.3010 wunnaayi bayatxa waataawaranaq 
+-0.3010 wunnaayi iqdxigoo phlaitx 
+-0.3010 wuqdi aaqdhrapradeisx raastxra 
+-0.3010 wuqdi ii wuuru 
+-0.3010 wuqdi ippudxu haidaraabaad 
+-0.3010 wuqdi tirumala loo 
+-0.3010 wuuru loo maqci 
+
+\end\
