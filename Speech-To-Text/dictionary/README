@@ -1,0 +1,5 @@
+Dictionary:
+
+To create dictionary using the text corpus in IT3 format.
+
+Usage: python dict.py etc/txt.done.data etc/dic.txt etc/Telugu_PhoneSet_Hts.txt

@@ -1,0 +1,5 @@
+ilParser:
+
+To parse Telugu IT3 text into phones.
+
+Usage: python parsing.py etc/txt.done.data etc/phones.txt etc/Telugu_PhoneSet_Hts.txt
